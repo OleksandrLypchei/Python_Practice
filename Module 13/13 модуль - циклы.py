@@ -82,13 +82,13 @@ print(' ')
 
 print("Проверка логина и пароля")
 login_list = [
-   'root',
-   'username1'
-   ]
+    'root',
+    'username1'
+]
 
 password_list = {
-   'root': '1q2w3e4r',
-   'username1': 'qwerty123'
+    'root': '1q2w3e4r',
+    'username1': 'qwerty123'
 }
 
 username = 'root'  # input('Введите логин:\n')
@@ -103,7 +103,7 @@ else:
 print(' ')
 
 a = 95   # int(input('Введите а: '))
-print(not(-10 <= a <= -1 or 2 <= a <= 15))
+print(not (-10 <= a <= -1 or 2 <= a <= 15))
 
 a = 5
 b = 56
@@ -140,16 +140,15 @@ print('\t\tЦИКЛЫ\n')
 print('Найдем сумму натуральных чисел.')
 a = 3  # int(input('Введите сколько чисел вы хотите суммировать? '))
 s = 0
-for i in list(range(1, a+1)):
+for i in list(range(1, a + 1)):
     s = s + i
     print(s)
 print("Сумма всех ваших чисел -", s, '\n')
 
 n = 5  # int(input('Какую елочку хочеш получить? '))
-for i in list(range(1, n+1)):
-    print('*'*i)
+for i in list(range(1, n + 1)):
+    print('*' * i)
 print('|____\n')
-
 
 s = 0
 i = 1
@@ -161,7 +160,7 @@ print(s)
 s = 1
 i = 1
 while True:
-    s = i*i
+    s = i * i
     print(f'Квадрат числа {i} - {s}')
     i += 1
     if s >= 1000:
@@ -180,9 +179,9 @@ for i in range(len(matrix)):
     print()
 
 random_matrix = [
-   [9, 2, 1],
-   [2, 5, 3],
-   [4, 8, 5]
+    [9, 2, 1],
+    [2, 5, 3],
+    [4, 8, 5]
 ]
 
 mean_value_rows = []  # здесь будут храниться средние значения для каждой строки
@@ -208,7 +207,7 @@ for i in random_matrix:
     min_index_rows.append(min_index)
     max_value_rows.append(max_value)
     max_index_rows.append(max_index)
-    mean_value_rows.append(round(sum(i)/len(i), 2))
+    mean_value_rows.append(round(sum(i) / len(i), 2))
 
 print(' Минимальные значения -', min_value_rows, '\n',
       "Их индексы", min_index_rows, '\n',
@@ -299,16 +298,17 @@ while True:
         break
 print(f'Число является тройкой в {step} степени\n')
 
-print('Проверим гипотезу Сикаруз.')          # Гипотеза Сиракуз гласит:
+print('Проверим гипотезу Сикаруз.')  # Гипотеза Сиракуз гласит:
 n = 3  # int(input("Введите любое число."))  # Любое натуральное число сводимо к единице,
 i = 0
-while not n == 1:                            # при следующих действиях над ним:
-    if n % 2 == 0:                           # 1. Если число четное, то разделить его пополам.
+while not n == 1:  # при следующих действиях над ним:
+    if n % 2 == 0:  # 1. Если число четное, то разделить его пополам.
         n = n / 2
-    else:                                    # 2. Если нечетное — умножить на 3, прибавить 1
-        n = (n * 3 + 1) / 2                  # и результат разделить на 2.
+    else:  # 2. Если нечетное — умножить на 3, прибавить 1
+        n = (n * 3 + 1) / 2  # и результат разделить на 2.
     i += 1
-    print(f'После {i} итерации наше число -', n, '\n')
+    print(f'После {i} итерации наше число -', n)
+print()
 
 print('Попробовали "break", перейдем на "continue".\n')
 print("В клетке находятся фазаны и кролики. Известно, что у них 35 голов и 94 ноги. \n"
@@ -320,15 +320,15 @@ heads = 35
 for rab in range(heads + 1):
     for birds in range(heads + 1):
         if rab + birds > heads or \
-        (rab * 4 + birds * 2) > legs:
+                (rab * 4 + birds * 2) > legs:
             continue
         elif rab + birds < heads or \
-        (rab * 4 + birds * 2) < legs:
+                (rab * 4 + birds * 2) < legs:
             continue
         else:
             print(f"Возможно там {rab} кроликов и {birds} фазанов.\n")
 
-a = 2  #int(input())
+a = 2  # int(input())
 
 if 100 < a < 999:
     if a % 2 == 0:
@@ -336,31 +336,48 @@ if 100 < a < 999:
             print("Число отвечает требованиям")
 
 if type(a) is int and \
-    100 < a < 999 and \
-    a % 2 == 0 and a % 3 == 0:
+        100 < a < 999 and \
+        a % 2 == 0 and a % 3 == 0:
     print("Число отвечает требованиям")
 
 if all([type(a) is int,
-    100 < a < 999,
-    a % 2 == 0, a % 3 == 0]):
+        100 < a < 999,
+        a % 2 == 0, a % 3 == 0]):
     print("Число отвечает требованиям")
 
-nums = '1 0 1 1 0'  # input('Введите числа через пробел: ')
-nums = list(map(int, nums.split()))
-if all(nums):
-    print("Все числа ненулеые.")
-else: print("Эсть 0 в наборе чисел")
+nums = [1, 0]  # list(map(int, input('Введите числа через пробел: ').split()))
+print(all(nums))
+print(not any(nums))
 
-M = [[i*j for j in range(1, 11)] for i in range(1, 11)]
-#print(M)
+squares = [(a, a**2) for a in range(1, 11) if a % 2 == 0]
+print(squares)
+print()
+
+M = [[i * j for j in range(1, 11)] for i in range(1, 11)]
+print(M)
+print()
 
 # L = [int(input("Число:")) % 2 == 0 for i in range(5) if i % 2 == 0]
+# print(L)
 
 L = [i for i in range(10)]
 # 0 1 2 3 4 5 6 7 8 9
-M = [i for i in range(10,0,-1)]
+M = [i for i in range(10, 0, -1)]
 
-F = [a+b for a, b in zip(L,M)]
+F = [a + b for a, b in zip(L, M)]
 print(F)
 
 
+in_word = 'aaabbccccdaa'  # input('Enter codeword')
+char = in_word[0]
+count = 0
+result = ''
+for a in in_word:
+    if a == char:
+        count += 1
+    else:
+        result += char + str(count)
+        char = a
+        count = 1
+result += char + str(count)
+print(result)
