@@ -190,30 +190,31 @@ min_index_rows = []  # здесь будут храниться индексы �
 max_value_rows = []  # здесь будут храниться максимальные значения для каждой строки
 max_index_rows = []  # здесь будут храниться индексы максимальных значений для каждой строки
 
-for i in random_matrix:
+for row in random_matrix:
     min_index = 0
     max_index = 0
-    min_value = i[min_index]
-    max_value = i[max_index]
+    min_value = row[min_index]
+    max_value = row[max_index]
 
-    for j in range(len(i)):
-        if i[j] < min_value:
-            min_value = i[j]
+    for j in range(len(row)):
+        if row[j] < min_value:
+            min_value = row[j]
             min_index = j
-        if i[j] > max_value:
-            max_value = i[j]
+        if row[j] > max_value:
+            max_value = row[j]
             max_index = j
     min_value_rows.append(min_value)
     min_index_rows.append(min_index)
     max_value_rows.append(max_value)
     max_index_rows.append(max_index)
-    mean_value_rows.append(round(sum(i) / len(i), 2))
+    mean_value_rows.append(round(sum(row) / len(row), 2))
 
 print(' Минимальные значения -', min_value_rows, '\n',
       "Их индексы", min_index_rows, '\n',
       "Макс значения -", max_value_rows, '\n',
       "Их индексы -", max_index_rows, '\n',
       "Средние значения на строку -", mean_value_rows, '\n')
+
 
 print('Давайте попрактикуемся с "enumerate"')
 list_ = [-5, 2, 4, 8, 12, -7, 5]
