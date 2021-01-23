@@ -99,6 +99,7 @@ def reverse_string(str):
 print(reverse_string('Does it reverse?'))
 print()
 
+
 def sum_numbers_in(numb):
     if numb < 1:
         return 0
