@@ -68,43 +68,73 @@ print(is_palindrome('text'))
 print(is_palindrome('tenet'))
 
 
-def multiplyer(*num):  # '*' разпаковывает кортеж всех аргументов "args" или '**' - словарь всех клавиатурных
+def multiplier(*num):  # '*' разпаковывает кортеж всех аргументов "args" или '**' - словарь всех клавиатурных
     result = 1          # аргументов "kwargs" (названия могут быть любые)
     for n in num:
         result *= n
     return result
 
 
-print(multiplyer(1, 2, 3))
+print(multiplier(1, 2, 3))
 print()
 
 
-def sum_funk(n):
+def sum_fact(n):
     if n == 1:
         return 1
-    else:
-        return n + sum_funk(n-1)
+    return n + sum_fact(n-1)
 
 
-print('Сумма всех чисед до 4 -', sum_funk(4))
+print(sum_fact(4))
 print()
 
 
-def reverse_string(str):
-    if len(str) == 0:
+def reverse_str(str):
+    if str == '':
         return ''
-    return str[-1] + reverse_string(str[:-1])
+    return str[-1] + reverse_str(str[:-1])
 
 
-print(reverse_string('Does it reverse?'))
+print(reverse_str('teak'))
 print()
 
 
-def sum_numbers_in(numb):
-    if numb < 1:
+def sum_of_nums(n):
+    if n < 1:
         return 0
-    return (numb % 10) + sum_numbers_in(numb//10)
+    return n % 10 + sum_of_nums(n//10)
 
 
-print(sum_numbers_in(321))
+print(sum_of_nums(361))
 print()
+
+
+def endless_nums(start_from=1, step=1):
+    while True:
+        yield start_from
+        start_from += step
+
+
+# for num in endless_nums():
+#     print(num)
+print()
+
+
+def endless_copy(list):
+    while True:
+        value = list.pop(0)
+        list.append(value)
+        yield value
+
+
+# for i in endless_copy([1, 2, 3]):
+#     print(i, end=' ')
+print()
+
+
+a = endless_nums(100, 10)
+for i in range(10):
+    print(next(a))
+
+print(next(a))
+print(next(a))
