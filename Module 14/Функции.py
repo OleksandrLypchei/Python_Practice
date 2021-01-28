@@ -7,24 +7,6 @@ print_2_add_2()
 print()
 
 
-def hello_world():
-    print('Hello World!')
-
-
-hello_world()
-print()
-
-
-def pow_func(base_to_pow, n=2):
-    result = base_to_pow**n
-    return result
-
-
-print('Powered 3 is ', pow_func(3))
-print('10 powered into 3 is ', pow_func(10, 3))
-print()
-
-
 def divide_num_question(a, n):
     if a % n == 0:
         print(f'{a} делится на {n}')
@@ -138,3 +120,58 @@ for i in range(10):
 
 print(next(a))
 print(next(a))
+print()
+
+
+def try_two(inside_func):
+    inside_func()
+    inside_func()
+    return 0
+
+
+def hello():
+    print('Hello')
+
+
+test = try_two(hello)
+print()
+
+
+def pow_to(x):
+    def pow_wha(a):
+        return a**x
+    return pow_wha
+
+
+pow_to_3 = pow_to(3)
+print(pow_to_3(2))
+print()
+
+import time
+
+def decor_time(fu):
+    def wrapper():
+        print(f'Запустилась функция {fu}')
+        t0 = time.time()
+        result = fu()
+        dt = time.time() - t0
+        print(f'Функция выполнилась за {dt:.10f} sec')
+        return dt
+    return wrapper
+
+
+
+def pow_2():
+    return 10000000**2
+
+
+def in_build_pow ():
+    return pow(10000000, 2)
+
+
+pow_2 = decor_time(pow_2)
+in_build_pow = decor_time(in_build_pow)
+
+pow_2()
+in_build_pow()
+
