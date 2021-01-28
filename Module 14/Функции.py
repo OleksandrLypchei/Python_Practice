@@ -1,3 +1,6 @@
+import time
+
+
 def print_2_add_2():
     a = 2 + 2
     print(f'2 + 2 = {a}')
@@ -136,42 +139,52 @@ def hello():
 test = try_two(hello)
 print()
 
-
-def pow_to(x):
-    def pow_wha(a):
-        return a**x
-    return pow_wha
+pi = 3.14159
 
 
-pow_to_3 = pow_to(3)
-print(pow_to_3(2))
+def sq_round(r):
+    result = 2 * pi * r
+    return result
+
+
+def pow_to_what(n):
+    def what_to_pow(c):
+        result = c ** n
+        return result
+    return what_to_pow
+
+
+square_it = pow_to_what(2)
+print(square_it(5))
 print()
 
-import time
 
 def decor_time(fu):
     def wrapper():
-        print(f'Запустилась функция {fu}')
         t0 = time.time()
         result = fu()
         dt = time.time() - t0
-        print(f'Функция выполнилась за {dt:.10f} sec')
         return dt
     return wrapper
-
 
 
 def pow_2():
     return 10000000**2
 
 
-def in_build_pow ():
+def in_build_pow():
     return pow(10000000, 2)
 
 
 pow_2 = decor_time(pow_2)
 in_build_pow = decor_time(in_build_pow)
 
-pow_2()
-in_build_pow()
+mean_pow_2 = 0
+mean_in_build_pow = 0
+N = 100
 
+for i in range(N):
+    mean_pow_2 += pow_2()
+    mean_in_build_pow += in_build_pow()
+print(f"Функция {pow_2} выполнилась {N} раз. Среднее время выполнения - {mean_pow_2/N}")
+print(f"Функция {in_build_pow} выполнилась {N} раз. Среднее время выполнения - {mean_in_build_pow/N}")
