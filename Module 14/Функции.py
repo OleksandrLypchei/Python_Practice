@@ -218,3 +218,23 @@ def decor_strings(fu):
 def print_pow():
     return printt(pow(100000, 2))
 
+
+def cache(fui):
+    mem = {}
+
+    def wrapper(n):
+        nonlocal mem
+        if n in mem:
+            return mem[n]
+        else:
+            mem[n] = fui(n)
+            return mem[n]
+    return wrapper
+
+@cache
+def f(n):
+    return n * 123456789
+
+
+n = int(input())
+f(n)
