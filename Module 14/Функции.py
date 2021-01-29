@@ -1,9 +1,27 @@
 import time
 
 
+def how_much_done(fn):
+    n = 0
+
+    def wrapper(*args, **kwargs):
+        nonlocal n
+        result = fn(*args, **kwargs)
+        n += 1
+        print('Count -', n)
+        return result
+    return wrapper
+
+
+@how_much_done
+def printt(*args):
+    print(*args)
+    return 0
+
+
 def print_2_add_2():
     a = 2 + 2
-    print(f'2 + 2 = {a}')
+    printt(f'2 + 2 = {a}')
 
 
 print_2_add_2()
@@ -12,9 +30,9 @@ print()
 
 def divide_num_question(a, n):
     if a % n == 0:
-        print(f'{a} делится на {n}')
+        printt(f'{a} делится на {n}')
     else:
-        print(f'{a} не делится на {n}')
+        printt(f'{a} не делится на {n}')
 
 
 divide_num_question(9, 2)
@@ -23,7 +41,7 @@ print()
 
 def new_year_falls(n=4):
     for i in range(n, 0, -1):
-        print('*' * i)
+        printt('*' * i)
     print()
 
 
@@ -39,7 +57,7 @@ def get_multipliers(a):
     return count
 
 
-print(get_multipliers(9))
+printt(get_multipliers(9))
 print()
 
 
@@ -49,8 +67,8 @@ def is_palindrome(text):
     return reverse_text == no_spaces
 
 
-print(is_palindrome('text'))
-print(is_palindrome('tenet'))
+printt(is_palindrome('text'))
+printt(is_palindrome('tenet'))
 
 
 def multiplier(*num):  # '*' разпаковывает кортеж всех аргументов "args" или '**' - словарь всех клавиатурных
@@ -60,7 +78,7 @@ def multiplier(*num):  # '*' разпаковывает кортеж всех а
     return result
 
 
-print(multiplier(1, 2, 3))
+printt(multiplier(1, 2, 3))
 print()
 
 
@@ -70,7 +88,7 @@ def sum_fact(n):
     return n + sum_fact(n-1)
 
 
-print(sum_fact(4))
+printt(sum_fact(4))
 print()
 
 
@@ -80,7 +98,7 @@ def reverse_str(str):
     return str[-1] + reverse_str(str[:-1])
 
 
-print(reverse_str('teak'))
+printt(reverse_str('teak'))
 print()
 
 
@@ -90,7 +108,7 @@ def sum_of_nums(n):
     return n % 10 + sum_of_nums(n//10)
 
 
-print(sum_of_nums(361))
+printt(sum_of_nums(361))
 print()
 
 
@@ -101,7 +119,7 @@ def endless_nums(start_from=1, step=1):
 
 
 # for num in endless_nums():
-#     print(num)
+#     printt(num)
 print()
 
 
@@ -113,16 +131,16 @@ def endless_copy(list):
 
 
 # for i in endless_copy([1, 2, 3]):
-#     print(i, end=' ')
+#     printt(i, end=' ')
 print()
 
 
 a = endless_nums(100, 10)
 for i in range(10):
-    print(next(a))
+    printt(next(a))
 
-print(next(a))
-print(next(a))
+printt(next(a))
+printt(next(a))
 print()
 
 
@@ -133,7 +151,7 @@ def try_two(inside_func):
 
 
 def hello():
-    print('Hello')
+    printt('Hello')
 
 
 test = try_two(hello)
@@ -155,7 +173,7 @@ def pow_to_what(n):
 
 
 square_it = pow_to_what(2)
-print(square_it(5))
+printt(square_it(5))
 print()
 
 
@@ -186,5 +204,17 @@ N = 100
 for i in range(N):
     mean_pow_2 += pow_2()
     mean_in_build_pow += in_build_pow()
-print(f"Функция {pow_2} выполнилась {N} раз. Среднее время выполнения - {mean_pow_2/N}")
-print(f"Функция {in_build_pow} выполнилась {N} раз. Среднее время выполнения - {mean_in_build_pow/N}")
+printt(f"Функция {pow_2} выполнилась {N} раз. Среднее время выполнения - {mean_pow_2/N}")
+printt(f"Функция {in_build_pow} выполнилась {N} раз. Среднее время выполнения - {mean_in_build_pow/N}")
+
+
+def decor_strings(fu):
+    printt('Я выполнюсь до функции')
+    result = fu()
+    printt("Я выполнюсь после функции")
+    return result
+
+
+def print_pow():
+    return printt(pow(100000, 2))
+
