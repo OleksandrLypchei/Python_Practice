@@ -236,5 +236,49 @@ def f(n):
     return n * 123456789
 
 
-n = int(input())
-f(n)
+# n = int(input())
+# f(n)
+
+
+def linear_solve(a, b):
+    if a:
+        return b/a
+    elif not a and not b:
+        return 'Бесконечное количество корней!'
+    else:
+        return 'Нет корней!'
+
+
+print(linear_solve(2, 9))
+print(linear_solve(0, 1))
+print(linear_solve(0, 0))
+print()
+
+
+def square_solve(a, b, c):
+    d = b**2 - (4 * a * c)
+    if a == 0:
+        return 'Первый коеффициент равен нулю. Нужен другой метод.'
+    if d < 0:
+        return 'Нет корней'
+    elif d == 0:
+        return -b/(2*a)
+    else:
+        x1 = (-b - d**0.5)/(a * 2)
+        x2 = (-b + d**0.5)/(a * 2)
+        return x1, x2
+
+
+square_quest = list(map(float, [1, 0, -1]))  # input("Введите коефициенты 'a, b, c' "
+                                             # "квадратного уравнения типа 'ax**2 + bx + c = 0\n").split(', ')))
+print(square_solve(*square_quest))
+print()
+
+
+def find_min_list(L):
+    if len(L) == 1:
+        return L[0]
+    return L[0] if L[0] <  find_min_list(L[1:]) else find_min_list(L[1:])
+
+
+print(find_min_list([0, 8, 3]))
