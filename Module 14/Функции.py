@@ -278,7 +278,89 @@ print()
 def find_min_list(L):
     if len(L) == 1:
         return L[0]
-    return L[0] if L[0] <  find_min_list(L[1:]) else find_min_list(L[1:])
+    return L[0] if L[0] < find_min_list(L[1:]) else find_min_list(L[1:])
 
 
 print(find_min_list([0, 8, 3]))
+
+
+def mirror_int(num, rev=0):
+    return mirror_int(num // 10, rev * 10 + num % 10) if num else rev
+
+
+print(mirror_int(12347))
+print()
+
+
+def equal(N, S):
+    if N < 10:
+        return N == S
+    return equal(N // 10, S - N % 10) if S > 0 else False
+
+
+print(equal(12, 3))
+
+
+def e():
+    n = 0
+    while True:
+        n += 1
+        yield (1 + 1/n)**n
+
+
+last = 0
+for a in e(): # e() - генератор
+    if (a - last) < 0.00000001: # ограничение на точность
+        print(a)
+        break  # после достижения которого - завершаем цикл
+    else:
+        last = a  # иначе - присваиваем новое значение
+print()
+
+
+USERS = ['admin', 'guest', 'director', 'root', 'superstar']
+
+yesno = 'N'  # input("""Введите Y, если хотите авторизоваться или N,
+             # если хотите продолжить работу как анонимный пользователь: """)
+
+auth = yesno == "Y"
+
+if auth:
+    username = input("Введите ваш username:")
+
+
+def is_auth(func):
+    def wrapper():
+        if auth:
+            print('Пользователь авторизирован')
+            return func()
+        else:
+            return 'Пользователь не авторизирован. Функция не выполняется.'
+    return wrapper
+
+
+def has_access(func):
+    def wrapper():
+        if username in USERS:
+            print('Доступ получен')
+            return func()
+        else:
+            print("Нет доступа")
+    return wrapper
+
+
+@is_auth
+@has_access
+def from_db():
+    print("some data from database")
+
+
+from_db()
+print()
+
+
+def filter_on_2(i):
+    return i % 2 == 0
+
+
+print(list(filter(filter_on_2, [-2, -1, 0, 1, -3, 2, -3] )))
