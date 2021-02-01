@@ -363,4 +363,19 @@ def filter_on_2(i):
     return i % 2 == 0
 
 
-print(list(filter(filter_on_2, [-2, -1, 0, 1, -3, 2, -3] )))
+print(list(filter(filter_on_2, [-2, -1, 0, 1, -3, 2, -3])))
+print()
+
+# вес и рост
+data = [
+   (82, 191),
+   (68, 174),
+   (90, 189),
+   (73, 179),
+   (76, 184)
+]
+
+print(list(sorted(data, key=lambda x: x[0] / ((x[1] * 100)**2))))
+print()
+print(min(data, key=lambda x: x[0] / ((x[1] * 100)**2)))
+print()
