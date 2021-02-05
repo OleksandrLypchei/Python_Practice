@@ -271,7 +271,7 @@ def square_solve(a, b, c):
 
 square_quest = list(map(float, [1, 0, -1]))  # input("Введите коефициенты 'a, b, c' "
                                              # "квадратного уравнения типа 'ax**2 + bx + c = 0\n").split(', ')))
-print(square_solve(*square_quest))
+print('Ответ:', square_solve(*square_quest))
 print()
 
 
