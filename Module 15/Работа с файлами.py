@@ -1,44 +1,40 @@
-file = open('firstfile.txt', 'w', encoding="utf8")
-file.write("""У лукоморья дуб зелёный;
-Златая цепь на дубе том:
-И днём и ночью кот учёный
-Всё ходит по цепи кругом;
-Идёт направо -- песнь заводит,
-Налево -- сказку говорит.
-Там чудеса: там леший бродит,
-Русалка на ветвях сидит;
-Там на неведомых дорожках
-Следы невиданных зверей;
-Избушка там на курьих ножках
-Стоит без окон, без дверей;
-Там лес и дол видений полны;
-Там о заре прихлынут волны
-На брег песчаный и пустой,
-И тридцать витязей прекрасных
-Чредой из вод выходят ясных,
-И с ними дядька их морской;
-Там королевич мимоходом
-Пленяет грозного царя;
-Там в облаках перед народом
-Через леса, через моря
-Колдун несёт богатыря;
-В темнице там царевна тужит,
-А бурый волк ей верно служит;
-Там ступа с Бабою Ягой
-Идёт, бредёт сама собой,
-Там царь Кащей над златом чахнет;
-Там русский дух... там Русью пахнет!
-И там я был, и мёд я пил;
-У моря видел дуб зелёный;
-Под ним сидел, и кот учёный
-Свои мне сказки говорил.
-""")
-file.close()
+heat_waves_file = open('HeatWaves.txt', 'r', encoding='utf8')
+for line in heat_waves_file:
+    print(line, end='')
+heat_waves_file.close()
+print()
 
-file = open('firstfile.txt', 'rt', encoding='utf8')
-print(file.readlines())
-file.close()
+myFile = open('name_file.txt', 'w')
+myFile.write('Write method\n')
+print('Print function\n', file=myFile)
+myFile.close()
 
-file = open('firstfile.txt', 'w')
-file.write('ttttt')
-print('ttttt', file=file)
+with open('name_file.txt', 'a') as myFile:
+    print('You can open file with construction "with open("file.txt", "rt") as Value".'
+          'It will close by itself.', file=myFile)
+print()
+
+alpha = 'abcdefghijklmnoprstuvwxyz'
+ALPHA = 'ABCDEFGHIJKLMNOPRSTUVWXYZ'
+number = int(input('Введите число, на которое нужно здвинуть текст: '))
+
+summary = ''
+
+
+def change_char(in_char):
+    if in_char in alpha:
+        return alpha[(alpha.index(in_char) + number) % (len(alpha) - 1)]
+    elif in_char in ALPHA:
+        return ALPHA[(ALPHA.index(in_char) + number) % (len(ALPHA) - 1)]
+    else:
+        return in_char
+
+
+with open('name_file.txt') as codeFile:
+    for line in codeFile:
+        for char in line:
+            summary += change_char(char)
+
+
+with open('output_file.txt', 'w') as codeFile:
+    codeFile.write(summary)
