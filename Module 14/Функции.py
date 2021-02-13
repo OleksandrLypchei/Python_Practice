@@ -41,7 +41,7 @@ print()
 
 def new_year_falls(n=4):
     for i in range(n, 0, -1):
-        printt('*' * i)
+        print('*' * i)
     print()
 
 
@@ -131,7 +131,7 @@ def endless_copy(list):
 
 
 # for i in endless_copy([1, 2, 3]):
-#     printt(i, end=' ')
+#     print(i, end=' ')
 print()
 
 
