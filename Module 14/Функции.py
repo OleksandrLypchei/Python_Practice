@@ -71,7 +71,7 @@ printt(is_palindrome('text'))
 printt(is_palindrome('tenet'))
 
 
-def multiplier(*num):  # '*' разпаковывает кортеж всех аргументов "args" или '**' - словарь всех клавиатурных
+def multiplier(*num):   # '*' разпаковывает кортеж всех аргументов "args" или '**' - словарь всех клавиатурных
     result = 1          # аргументов "kwargs" (названия могут быть любые)
     for n in num:
         result *= n
