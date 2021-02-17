@@ -1,0 +1,4 @@
+"Write" method without new line
+"Print" function with new line on the end of this string
+
+You can open file with construction "with open("file.txt", "rt") as 'Value'".It will close by itself.
