@@ -375,7 +375,8 @@ data = [
    (76, 184)
 ]
 
-print(list(sorted(data, key=lambda x: x[0] / ((x[1] * 100)**2))))
+print(list(sorted(data, key=lambda x: x[0] / ((x[1] / 100)**2))))
 print()
-print(min(data, key=lambda x: x[0] / ((x[1] * 100)**2)))
+print(min(data, key=lambda x: x[0] / ((x[1] / 100)**2)))
 print()
+print(list(map(lambda x: x[0] / ((x[1] / 100)**2), data)))
