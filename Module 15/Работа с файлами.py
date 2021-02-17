@@ -1,40 +1,36 @@
-heat_waves_file = open('HeatWaves.txt', 'r', encoding='utf8')
-for line in heat_waves_file:
-    print(line, end='')
-heat_waves_file.close()
+heatWaves = open('HeatWaves.txt', 'r')
+print(heatWaves.read(13))
+print(heatWaves.read(5))
+print(heatWaves.readline())
+print(heatWaves.readlines())
 print()
 
 myFile = open('name_file.txt', 'w')
-myFile.write('Write method\n')
-print('Print function\n', file=myFile)
+myFile.write('"Write" method without new line\n')
+print('"Print" function with new line on the end of this string\n', file=myFile)
+myFile.flush()
 myFile.close()
 
 with open('name_file.txt', 'a') as myFile:
-    print('You can open file with construction "with open("file.txt", "rt") as Value".'
-          'It will close by itself.', file=myFile)
-print()
-
-alpha = 'abcdefghijklmnoprstuvwxyz'
-ALPHA = 'ABCDEFGHIJKLMNOPRSTUVWXYZ'
-number = int(input('Введите число, на которое нужно здвинуть текст: '))
-
-summary = ''
+    myFile.write('You can open file with construction "with open("file.txt", "rt") as \'Value\'".'
+                 'It will close by itself.')
 
 
-def change_char(in_char):
-    if in_char in alpha:
-        return alpha[(alpha.index(in_char) + number) % (len(alpha) - 1)]
-    elif in_char in ALPHA:
-        return ALPHA[(ALPHA.index(in_char) + number) % (len(ALPHA) - 1)]
-    else:
-        return in_char
+def change_char(text, n=1):
+    alpha = 'abcdefghijklmnoprstuvwxyz'
+    alpha_up = alpha.upper()
+    summary = ''
+    for char in text:
+        if char in alpha:
+            summary += alpha[(alpha.index(char) + n) % len(alpha) + 1]
+        elif char in alpha_up:
+            summary += alpha_up[(alpha_up.index(char) + n) % len(alpha)]
+        else:
+            summary += char
+    return summary
 
 
-with open('name_file.txt') as codeFile:
-    for line in codeFile:
-        for char in line:
-            summary += change_char(char)
+with open('name_file.txt', 'r') as inputFile:
+    with open('output_file.txt', 'w') as outputFile:
+        outputFile.write(change_char(inputFile.read()))
 
-
-with open('output_file.txt', 'w') as codeFile:
-    codeFile.write(summary)

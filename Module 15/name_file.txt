@@ -1,4 +1,0 @@
-Write method
-Print function
-
-You can open file with construction "with open("file.txt", "rt") as Value".It will close by itself.
