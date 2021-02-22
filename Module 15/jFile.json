@@ -1,0 +1,24 @@
+{
+    "firstname": "Коля",
+    "lastname": "Петренко",
+    "isAlive": true,
+    "age": 19,
+    "address": {
+        "region": "Киевская обл.",
+        "city": "Белая Церковь",
+        "street": "ул. Набережна 42",
+        "postal": ""
+    },
+    "phoneNumbers": [
+        {
+            "type": "mob",
+            "number": "033355523"
+        },
+        {
+            "type": "office",
+            "number": "031652654"
+        }
+    ],
+    "children": [],
+    "spouse": null
+}True, False, None"True, False, None"True, False, None
