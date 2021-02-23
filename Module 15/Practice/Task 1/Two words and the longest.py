@@ -19,7 +19,7 @@ print()
 
 words_dict = {}
 longest_word = ''
-for word in words_only(text).split(' '):
+for word in words_only(text).split():
     if len(word) > len(longest_word):       # Finding the longest word.
         longest_word = word
     if len(word) <= 3:                      # Don't look at too small words
