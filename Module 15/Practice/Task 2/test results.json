@@ -1,34 +1,70 @@
 [
     {
         "timestamp_of_issued_respond": 1555296301000,
-        "referer": "ttps://b24-d2wt09.bitrix24.shop/katalog/item/dress-spring-ease/ (must begin with https://' or 'https://')"
+        "referer": "'ttps://b24-d2wt09.bitrix24.shop/katalog/item/dress-spring-ease/' (must begin with http://' or 'https://')"
+    },
+    {
+        "timestamp_of_issued_respond": 1555296307000
     },
     {
         "timestamp_of_issued_respond": 1555296314000,
-        "userAgentName": "3 (must be string)"
+        "userAgentName": "'3' (must be string)"
     },
     {
         "timestamp_of_issued_respond": true,
-        "timestamp": "True must be int"
+        "timestamp": "'True' must be int"
     },
     {
         "timestamp_of_issued_respond": 1555296322000,
-        "location": "False (must be string)"
+        "location": "'False' (must be string)"
+    },
+    {
+        "timestamp_of_issued_respond": 1555296328000
     },
     {
         "timestamp_of_issued_respond": 1555296337000,
-        "sessionId": "0 (must be string)"
+        "sessionId": "'0' (must be string)"
+    },
+    {
+        "timestamp_of_issued_respond": 1555296343000
     },
     {
         "timestamp_of_issued_respond": 1555296346000,
-        "remoteHost": "True (must be string)"
+        "remoteHost": "'True' (must be string)"
+    },
+    {
+        "timestamp_of_issued_respond": 1555296349000
     },
     {
         "timestamp_of_issued_respond": 1555296354000,
-        "item_url": "42 (must be string)"
+        "item_url": "'42' (must be string)"
+    },
+    {
+        "timestamp_of_issued_respond": 1555296361000
+    },
+    {
+        "timestamp_of_issued_respond": 1555296370000
     },
     {
         "timestamp_of_issued_respond": "timestamp42",
-        "timestamp": "timestamp42 must be int"
+        "timestamp": "'timestamp42' must be int"
+    },
+    {
+        "timestamp_of_issued_respond": 1555296385000
+    },
+    {
+        "timestamp_of_issued_respond": 1555296394000
+    },
+    {
+        "timestamp_of_issued_respond": 1555296396000
+    },
+    {
+        "timestamp_of_issued_respond": 1555296400000
+    },
+    {
+        "timestamp_of_issued_respond": 1555296407000
+    },
+    {
+        "timestamp_of_issued_respond": 1555296412000
     }
 ]
