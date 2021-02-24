@@ -34,7 +34,7 @@ with open('jFile.json', 'w', encoding='utf8') as jFile:         # json.dump(valu
     json.dump(dictionary, jFile, ensure_ascii=False, indent=4)  # like .write but in translate for JSON-code
 
 with open('jFile.json', 'r', encoding='utf8') as jFile:  # json.load(value) like .read but with translation on JSON-code
-    print(json.load(jFile))
+    print(json.load(jFile))                              # when use json.load() you can't use .read() and vice versa
 print()
 
 

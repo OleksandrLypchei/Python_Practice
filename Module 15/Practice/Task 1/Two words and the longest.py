@@ -7,19 +7,19 @@ def words_only(text):
     for char in text:
         if char == '\n':
             text = text.replace(char, ' ')
-        if not char in alpha:
+        if char not in alpha:
             text = text.replace(char, '')
     return text
 
 
 poet = input('Input lastname of poet you want to analise (Shakespeare, Byron, Poe, Kipling or Wilde available):')
-with open(os.path.join('Poets Database', poet + '.txt'), 'r', encoding='utf8') as poetBio:
-    text = poetBio.read()
+with open(os.path.join('Poets Database', poet + '.txt'), 'r', encoding='utf8') as poetFile:
+    poetBio = poetFile.read()
 print()
 
 words_dict = {}
 longest_word = ''
-for word in words_only(text).split():
+for word in words_only(poetBio).split():
     if len(word) > len(longest_word):       # Finding the longest word.
         longest_word = word
     if len(word) <= 3:                      # Don't look at too small words
@@ -41,7 +41,6 @@ for counted_word in words_dict:
             max_counted.pop(1)
             max_counted.append(counted_word)
 
-print(f"The longest word - '{longest_word}'.\n"
-      f"Two most common words are:\n"
+print(f"The longest word - '{longest_word}'.\nTwo most common words are:\n"
       f"'{max_counted[0]}' - {words_dict[max_counted[0]]} times\n"
       f"'{max_counted[1]}' - {words_dict[max_counted[1]]} times.")
